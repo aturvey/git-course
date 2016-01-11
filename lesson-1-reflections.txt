@@ -1,0 +1,72 @@
+Finding differences between files.
+
+% tkdiff  /* the easy way */
+
+% diff <file1> <file2>  /* the not as easy way */
+% diff -u <file1> <file2>   /* same as above but unified format */
+
+The output of diff -u can be a bit difficult to read. Here is a sample.
+
+file1:
+    one
+    two
+    three
+
+file2:
+    one
+    2
+    three
+    four
+
+% diff file1 file1
+    2c2
+    < two
+    ---
+    > 2
+    3a4
+    > four
+
+The way you read this (a little confusing) is '2c2' means line two of file1 changed and is now line 2 of file2. The
+'<' is as it appeared in file1 and the '>' is as it appeared in file2. The '---' is a separator. The '3a4' means 
+appending after line 3 of file1 is added 'a' to line 4 of file2. The '>' is the new line added. 
+
+Here is the 'unified' output using -u:
+
+% diff -u file1 file2
+    --- file1	2016-01-10 19:04:50.000000000 -0500
+    +++ file2	2016-01-10 19:04:59.000000000 -0500
+    @@ -1,3 +1,4 @@
+    one
+    -two
+    +2
+    three
+    +four
+
+The --- refers to the original file (first in argument list) and +++ refers to the new file (second in argument list). 
+The junk between @@@ means that the output that follows is from lines in range 1,3 of original file and range 1,4 of
+the second file. In the text lines that follow, lines beginning with ' ' have no change, line with '-' have been deleted
+and lines with '+' have been added. There can also be a '!' which means changed.  
+
+GIT PROMPT and GIT TAB COMPLETION
+---------------------------------
+There are two very useful files. they are on macbook pro, and probably can be found via google. Abundantly commented.
+
+    .git-profile.sh
+    .git-completion.bash
+
+Commands learned in this Lesson
+-------------------------------
+
+    % git --version
+    % git clone <url>
+    % git log 
+    % git log --stat
+    % git diff <id1> <id2>
+
+Note: when looking at the output from git log be sure to remember that the most recent commit is listed first. 
+
+Some configurations recommended by the Udacity course:
+    % git config --global core.editor "vim"
+    % git config --global push.default upstream
+    % git config --global merg.conflictsytle diff3
+
