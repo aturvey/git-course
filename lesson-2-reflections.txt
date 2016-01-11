@@ -6,3 +6,7 @@ Commands learned in this Lesson
 
     % git init
     % git status
+    % git commit [-m ""]
+    % git diff      ; without argument shows diff between what's currently in directory and what's in staging area
+    % git diff --staged  ; shows diff between staging area and most recent commit
+    % git reset --hard   ; wipes out any changes in working directory as well as anything in staging area 
