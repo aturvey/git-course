@@ -1,0 +1,25 @@
+Here are some notes to work with the GitHub commandline API:
+
+Assuming you already have a GitHub account set up, then...
+
+First, set up the ssh public key on GitHub. Test the SSH connection like so:
+
+    % ssh git@github.com
+
+You should see a message like:
+
+    PTY allocation request failed on channel 0
+    Hi aturvey! You've successfully authenticated, but GitHub does not provide shell access.
+    Connection to github.com closed.
+
+If not, there is some troubleshooting information on GitHub: https://goo.gl/uDSgNY
+
+You can also use HTTPS, but beware that with 2FA enabled you'll need to have a Personal Access
+Token defined (also described in the above link)
+
+Here's how to cache your password with GitHub so that you don't need to use it every single
+time. I guess this is analogous to ssh-agent for the session:
+
+    https://goo.gl/hmaIj4
+
+
