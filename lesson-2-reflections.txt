@@ -10,3 +10,36 @@ Commands learned in this Lesson
     % git diff      ; without argument shows diff between what's currently in directory and what's in staging area
     % git diff --staged  ; shows diff between staging area and most recent commit
     % git reset --hard   ; wipes out any changes in working directory as well as anything in staging area 
+
+To create and delete a branch
+-----------------------------
+
+    % git branch    ; with no argument shows a list of branches with the active brance having an asterisk
+    % git branch <branch-name>      create a new branch with branch-name
+        (% git checkout <branch-name>)
+
+    % git log --graph --oneline <branch1> <branch2>
+
+    % git branch -d <branch-name>   ; delete a branch
+
+To create a branch and also make it active HEAD:
+
+    % git checkout -b <branch-name>
+
+Similar to:
+
+    % git branch <branch-name>
+    % git checkout <branch-name>
+
+Merging
+-------
+
+To merge <branch> into master:
+
+% git branch
+% git checkout master
+% git merge <branch> master     ; I think...
+
+
+
+
