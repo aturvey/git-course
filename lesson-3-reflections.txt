@@ -22,4 +22,35 @@ time. I guess this is analogous to ssh-agent for the session:
 
     https://goo.gl/hmaIj4
 
+--------------------------------------
+
+git keeps a branch locally that represents the last known state of the remote repo. that copy
+is known as origin/master. It is a pointer to the last known remote commit on the master branch.
+
+When local master gets out of sync with the remote, you can see it by
+
+    % git status
+
+You can also move forward the origin/master branch so that it is up to date with the repo but 
+not merged with your local
+
+    % git fetch origin master
+
+Then you can look over the commits and do various diffs to investigate
+
+    % git diff <whatever>
+    % git log origin/master
+
+Finally, you can merge origin/master into local master
+
+    % git checkout master   ; don't forget about this
+    % git merge master origin/master    ; resolve conficts, then add and commit
+
+Or, you could have done all this in one go, like so
+
+    % git pull origin master
+
+When all done merging then push back up to repo
+
+    $ git push origin master
 
